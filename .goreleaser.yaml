@@ -74,12 +74,12 @@ scoops:
   - repository:
       owner: mrjefflarry
       name: hello-cli
-    homepage: "https://github.com/mrjefflarry/release-test"
+    homepage: "https://github.com/mrjefflarry/hello-cli"
     description: "Hello CLI"
 
 nfpms:
   - vendor: mrjefflarry
-    homepage: https://github.com/mrjefflarry/release-test
+    homepage: https://github.com/mrjefflarry/hello-cli
     maintainer: Jeff Hägerman
     license: MIT
     description: Hello CLI for interacting with Hello Servers
@@ -110,7 +110,7 @@ brews:
   - repository:
       owner: mrjefflarry
       name: hello-cli
-    homepage: https://github.com/mrjefflarry/release-test
+    homepage: https://github.com/mrjefflarry/hello-cli
     description: "Hello CLI"
     install: |-
       bin.install "hello-cli"
@@ -122,7 +122,7 @@ homebrew_casks:
     repository:
       owner: mrjefflarry
       name: hello-cli
-    homepage: https://github.com/mrjefflarry/release-test
+    homepage: https://github.com/mrjefflarry/hello-cli
     description: "Hello CLI"
     directory: Casks # or remove this option
     # make the old formula conflict with the cask:
