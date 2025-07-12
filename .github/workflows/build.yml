@@ -32,9 +32,6 @@ jobs:
       - name: Build
         run: make build-all
 
-      - name: Readme
-        run: cp README.md build/
-
       - uses: actions/upload-artifact@v4
         with:
           name: artifacts
