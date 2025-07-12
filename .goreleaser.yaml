@@ -18,7 +18,9 @@ release:
 
 signs:
   - artifacts: all
-    args: ["--batch", "-u", "{{ .Env.GPG_FINGERPRINT }}", "--output", "${signature}", "--detach-sign", "${artifact}"]
+    args: ["--batch", "--pinentry-mode", "loopback", "--passphrase", "{{ .Env.GPG_PASSPHRASE }}", "-u", "{{ .Env.GPG_FINGERPRINT }}", "--output", "${signature}", "--detach-sign", "${artifact}"]
+
+# gpg --batch --pinentry-mode loopback --passphrase  "$GPG_PASSPHRASE" --armor --detach-sign ./tmp/hello-cli
 
 builds:
   - id: macos
