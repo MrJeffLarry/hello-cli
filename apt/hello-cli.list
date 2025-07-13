@@ -1,1 +1,1 @@
-deb https://raw.githubusercontent.com/MrJeffLarry/hello-cli/main/apt stable main
+deb https://raw.githubusercontent.com/MrJeffLarry/hello-cli/main/apt ./
