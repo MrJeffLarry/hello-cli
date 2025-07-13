@@ -8,7 +8,7 @@ cp ./dist/*.deb ./apt/
 dpkg-scanpackages --multiversion . > ./apt/Packages
 
 # change Filename to url
-sed -i "s|./|https://github.com/MrJeffLarry/hello-cli/releases/download/$VERSION/|" ./apt/Packages
+sed -i "s|./hello-cli|https://github.com/MrJeffLarry/hello-cli/releases/download/$VERSION/hello-cli|" ./apt/Packages
 
 gzip -k -f ./apt/Packages
 
