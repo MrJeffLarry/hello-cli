@@ -51,11 +51,14 @@ jobs:
           VERSION: ${{ github.ref_name }}
 
       - name: Update APT Release files
+        env:
+          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
+          VERSION: ${{ github.ref_name }}
         run: |
           git pull
           chmod +x ./script/*.sh
           ./script/apt.sh
-          
+
       - uses: EndBug/add-and-commit@v9
         with:
           message: Update APT release files
