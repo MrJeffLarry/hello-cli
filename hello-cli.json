@@ -1,26 +1,26 @@
 {
-    "version": "0.0.12",
+    "version": "0.0.14",
     "architecture": {
         "32bit": {
-            "url": "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.12/hello-cli_0.0.12_windows_386.tar.gz",
+            "url": "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.14/hello-cli_0.0.14_windows_386.tar.gz",
             "bin": [
                 "hello-cli.exe"
             ],
-            "hash": "c4c9675fb25a53ad74bbf9471143144122ccb98fc9545bdcbe53d31d3a088eab"
+            "hash": "6c4d0ba8895dbf68abb97e1e36f923ce94018418fec8a1f390ce616dbdaa8551"
         },
         "64bit": {
-            "url": "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.12/hello-cli_0.0.12_windows_amd64.tar.gz",
+            "url": "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.14/hello-cli_0.0.14_windows_amd64.tar.gz",
             "bin": [
                 "hello-cli.exe"
             ],
-            "hash": "91bb7abfaafd60edc49a8390ec2a0f758d9e9090a1fd64aa7126a9d0aa6663e3"
+            "hash": "eeb4a2c0fb6d854b694a4a6fb0071d432d57dea6145af13ef4c6e8d4d1143b7c"
         },
         "arm64": {
-            "url": "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.12/hello-cli_0.0.12_windows_arm64.tar.gz",
+            "url": "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.14/hello-cli_0.0.14_windows_arm64.tar.gz",
             "bin": [
                 "hello-cli.exe"
             ],
-            "hash": "2da44fd037f0a8254d7a956ae324137bfd37af36bcc1ef40230d270b7b3c65ef"
+            "hash": "439b1bfc0f39efe5fb49b35c2557cc90c3e5187034c6daa20ac71bd270e2fab8"
         }
     },
     "homepage": "https://github.com/mrjefflarry/hello-cli",
