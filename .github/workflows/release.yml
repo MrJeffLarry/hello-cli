@@ -50,11 +50,12 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           VERSION: ${{ github.ref_name }}
 
-      # - name: Update APT Release files
-      #   run: |
-      #     git pull
-      #     chmod +x ./script/*.sh
-      #     ./script/apt.sh
-      # - uses: EndBug/add-and-commit@v9
-      #   with:
-      #     message: Update APT release files
+      - name: Update APT Release files
+        run: |
+          git pull
+          chmod +x ./script/*.sh
+          ./script/apt.sh
+          
+      - uses: EndBug/add-and-commit@v9
+        with:
+          message: Update APT release files
