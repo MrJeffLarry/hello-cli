@@ -10,7 +10,7 @@ cd ./apt
 dpkg-scanpackages --multiversion . > Packages
 
 # change Filename to url
-sed -i "s|./hello-cli|https://github.com/MrJeffLarry/hello-cli/releases/download/$VERSION/hello-cli|" Packages
+sed -i "s|Filename: ./hello-cli|Filename: https://github.com/MrJeffLarry/hello-cli/releases/download/$VERSION/hello-cli|" Packages
 
 gzip -k -f Packages
 
