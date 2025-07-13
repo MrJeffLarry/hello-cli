@@ -1,18 +1,20 @@
 #!/bin/bash
 
-export EMAIL=jeff@hagerman.io
-
-rm ./apt/*.deb
+set -e
 
 cp ./dist/*.deb ./apt/
 
-cd apt
-
 # Packages & Packages.gz
-dpkg-scanpackages --multiversion . > Packages
-gzip -k -f Packages
+dpkg-scanpackages --multiversion . > ./apt/Packages
+
+# change Filename to url
+sed -i "s|./|https://github.com/MrJeffLarry/hello-cli/releases/download/$VERSION/|" ./apt/Packages
+
+gzip -k -f ./apt/Packages
 
 # Release, Release.gpg & InRelease
-apt-ftparchive release . > Release
-gpg --default-key "$EMAIL" -abs -o - Release > Release.gpg
-gpg --default-key "$EMAIL" --clearsign -o - Release > InRelease
+apt-ftparchive release ./apt/ > ./apt/Release
+gpg --default-key "$GPG_FINGERPRINT" -abs -o - ./apt/Release > ./apt/Release.gpg
+gpg --default-key "$GPG_FINGERPRINT" --clearsign -o - ./apt/Release > ./apt/InRelease
+
+rm ./apt/*.deb
