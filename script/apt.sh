@@ -16,7 +16,7 @@ gzip -k -f Packages
 
 # Release, Release.gpg & InRelease
 apt-ftparchive release  > Release
-gpg --default-key "$GPG_FINGERPRINT" -abs -o - Release > Release.gpg
-gpg --default-key "$GPG_FINGERPRINT" --clearsign -o - Release > InRelease
+gpg --batch --pinentry-mode loopback --default-key "$GPG_FINGERPRINT" --passphrase "$GPG_PASSPHRASE" -abs -o - Release > Release.gpg
+gpg --batch --pinentry-mode loopback --default-key "$GPG_FINGERPRINT" --passphrase "$GPG_PASSPHRASE" --clearsign -o - Release > InRelease
 
 rm *.deb
