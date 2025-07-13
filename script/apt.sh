@@ -15,7 +15,7 @@ sed -i "s|Filename: ./hello-cli|Filename: https://github.com/MrJeffLarry/hello-c
 gzip -k -f Packages
 
 # Release, Release.gpg & InRelease
-apt-ftparchive release  > Release
+apt-ftparchive release . > Release
 gpg --batch --pinentry-mode loopback --default-key "$GPG_FINGERPRINT" --passphrase "$GPG_PASSPHRASE" -abs -o - Release > Release.gpg
 gpg --batch --pinentry-mode loopback --default-key "$GPG_FINGERPRINT" --passphrase "$GPG_PASSPHRASE" --clearsign -o - Release > InRelease
 
