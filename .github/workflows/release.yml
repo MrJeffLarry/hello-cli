@@ -6,12 +6,23 @@ on:
       - 'v[0-9]+.[0-9]+.[0-9]+'
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+env:
+  REPO_NAME: hello-cli
+  CODENAME: jammy
+  COMPONENTS: main
+  ARCHITECTURES: amd64 arm64 386
 
 jobs:
   build:
     name: Build binary
     runs-on: ubuntu-latest
+    outputs:
+      artifact_id: ${{ steps.upload-artifact.outputs.artifact-id }}
+      keyring: ${{ steps.create-apt-repo.outputs.keyring }}
     steps:
       - uses: actions/cache@v4
         with:
@@ -29,6 +40,9 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
       - name: Fetch all tags
         run: git fetch --force --tags
@@ -50,16 +64,51 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           VERSION: ${{ github.ref_name }}
 
-      - name: Update APT Release files
-        env:
-          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-          VERSION: ${{ github.ref_name }}
-        run: |
-          git pull
-          chmod +x ./script/*.sh
-          ./script/apt.sh
-
-      - uses: EndBug/add-and-commit@v9
+      - uses: morph027/apt-repo-action@v2
+        id: create-apt-repo
         with:
-          message: Update APT release files
+          repo-name: ${{ env.REPO_NAME }}
+          scan-dir: dist
+          signing-key: ${{ secrets.APT_SECRET_KEY }}
+          codename: ${{ env.CODENAME }}
+          components: ${{ env.COMPONENTS }}
+          architectures: ${{ env.ARCHITECTURES }}
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          name: github-pages
+          path: ${{ steps.create-apt-repo.outputs.dir }}
+
+      # - name: Update APT Release files
+      #   env:
+      #     GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
+      #     GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+      #     VERSION: ${{ github.ref_name }}
+      #   run: |
+      #     git pull
+      #     chmod +x ./script/*.sh
+      #     ./script/apt.sh
+
+      # - uses: EndBug/add-and-commit@v9
+      #   with:
+      #     message: Update APT release files
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Adding summary
+        run: |
+          echo ':rocket:' >> $GITHUB_STEP_SUMMARY
+          echo '' >> $GITHUB_STEP_SUMMARY
+          echo '```bash' >> $GITHUB_STEP_SUMMARY
+          echo 'curl -sfLo /etc/apt.trusted.gpg.d/${{ needs.build.outputs.keyring }}.asc ${{ steps.deploy-pages.outputs.page_url }}gpg.key' >> $GITHUB_STEP_SUMMARY
+          echo 'echo "deb ${{ steps.deploy-pages.outputs.page_url }} ${{ env.CODENAME }} ${{ env.COMPONENTS }}" >/etc/apt/sources.list.d/${{ env.REPO_NAME }}.list' >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
