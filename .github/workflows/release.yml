@@ -64,31 +64,31 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           VERSION: ${{ github.ref_name }}
 
-      - uses: morph027/apt-repo-action@v2
-        id: create-apt-repo
-        with:
-          repo-name: ${{ env.REPO_NAME }}
-          scan-dir: dist
-          signing-key: ${{ secrets.APT_SECRET_KEY }}
-          codename: ${{ env.CODENAME }}
-          components: ${{ env.COMPONENTS }}
-          architectures: ${{ env.ARCHITECTURES }}
+      # - uses: morph027/apt-repo-action@v2
+      #   id: create-apt-repo
+      #   with:
+      #     repo-name: ${{ env.REPO_NAME }}
+      #     scan-dir: dist
+      #     signing-key: ${{ secrets.APT_SECRET_KEY }}
+      #     codename: ${{ env.CODENAME }}
+      #     components: ${{ env.COMPONENTS }}
+      #     architectures: ${{ env.ARCHITECTURES }}
+
+      - name: Update APT Release files
+        env:
+          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          VERSION: ${{ github.ref_name }}
+        run: |
+          git pull
+          chmod +x ./script/*.sh
+          ./script/apt.sh
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
-          path: ${{ steps.create-apt-repo.outputs.dir }}
-
-      # - name: Update APT Release files
-      #   env:
-      #     GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
-      #     GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-      #     VERSION: ${{ github.ref_name }}
-      #   run: |
-      #     git pull
-      #     chmod +x ./script/*.sh
-      #     ./script/apt.sh
+          path: apt
 
       # - uses: EndBug/add-and-commit@v9
       #   with:
