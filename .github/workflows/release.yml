@@ -65,10 +65,9 @@ jobs:
           VERSION: ${{ github.ref_name }}
 
       - name: Build
-        uses: TartanLlama/actions-eleventy@master
+        uses: cjerrington/actions-eleventy@v1.3
         with:
-          args: --output site
-          install_dependencies: true
+          args: '--output=_dist'
 
       - name: Update APT Release files
         env:
@@ -84,7 +83,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
-          path: site
+          path: _dist
 
   deploy:
     environment:

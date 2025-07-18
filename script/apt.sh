@@ -21,4 +21,4 @@ gpg --batch --pinentry-mode loopback --default-key "$GPG_FINGERPRINT" --passphra
 
 cd ..
 
-cp -r ./apt ./site/apt
+cp -r ./apt ./_dist/apt
