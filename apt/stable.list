@@ -1,1 +1,1 @@
-deb https://mrjefflarry.github.io/hello-cli/apt/stable.list ./
+deb https://mrjefflarry.github.io/hello-cli/apt ./ InRelease
