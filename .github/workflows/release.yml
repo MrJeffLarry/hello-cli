@@ -64,26 +64,25 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           VERSION: ${{ github.ref_name }}
 
-      - name: Build
-        uses: cjerrington/actions-eleventy@master
-        with:
-          args: '--output=_dist'
-
       - name: Update APT Release files
         env:
           GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           VERSION: ${{ github.ref_name }}
         run: |
-          git pull
           chmod +x ./script/*.sh
           ./script/apt.sh
+
+      - name: Build
+        uses: cjerrington/actions-eleventy@master
+        with:
+          args: '--output=site'
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
-          path: _dist
+          path: site
 
   deploy:
     environment:
