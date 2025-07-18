@@ -2,7 +2,7 @@
 cask "hello-cli" do
   desc "Hello CLI"
   homepage "https://github.com/mrjefflarry/hello-cli"
-  version "0.0.24"
+  version "0.0.25"
 
   livecheck do
     skip "Auto-generated on release."
@@ -12,23 +12,23 @@ cask "hello-cli" do
 
   on_macos do
     on_intel do
-      url "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.24/hello-cli_0.0.24_darwin_amd64.tar.gz"
-      sha256 "a812d34bd1e756d42ba558f79d5c8757a92eea5c0f62fc1d3732d884525a4684"
+      url "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.25/hello-cli_0.0.25_darwin_amd64.tar.gz"
+      sha256 "96d936a77e05b7712f3c4f63e72157c348166f12c13836f6136b571b25180492"
     end
     on_arm do
-      url "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.24/hello-cli_0.0.24_darwin_arm64.tar.gz"
-      sha256 "abab20e33f54f208feae29630f4d710d3e8025eae64d46a8e15ccd4344054068"
+      url "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.25/hello-cli_0.0.25_darwin_arm64.tar.gz"
+      sha256 "3a53ed5ae0ae2b8ddb7313ed820f9bb976ee7ead0fada801ca2e4afd9113745b"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.24/hello-cli_0.0.24_linux_amd64.tar.gz"
-      sha256 "5d7659b570a757dfdf884eb45d82fb03f7cd974f646ee408cf137d2953995712"
+      url "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.25/hello-cli_0.0.25_linux_amd64.tar.gz"
+      sha256 "0a8d21a5a49ab06ac8edfd7a8535abb42a83225ab2eacbee885699e96d213e9e"
     end
     on_arm do
-      url "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.24/hello-cli_0.0.24_linux_arm64.tar.gz"
-      sha256 "184204575f7b04b2b8e2918b93cabe1a42646c806605b9d201f7ce34ff40fbff"
+      url "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.25/hello-cli_0.0.25_linux_arm64.tar.gz"
+      sha256 "c46b7997fa4ca602634a3e876e5a22f878b24f330403ac9bf73212584321cbc1"
     end
   end
 
