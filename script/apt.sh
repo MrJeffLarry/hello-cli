@@ -19,4 +19,6 @@ apt-ftparchive release . > Release
 gpg --batch --pinentry-mode loopback --default-key "$GPG_FINGERPRINT" --passphrase "$GPG_PASSPHRASE" -abs -o - Release > Release.gpg
 gpg --batch --pinentry-mode loopback --default-key "$GPG_FINGERPRINT" --passphrase "$GPG_PASSPHRASE" --clearsign -o - Release > InRelease
 
+cd ..
+
 cp -r ./apt ./site/apt
