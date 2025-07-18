@@ -68,6 +68,7 @@ jobs:
         uses: TartanLlama/actions-eleventy@master
         with:
           args: --output site
+          install_dependencies: true
 
       - name: Update APT Release files
         env:
