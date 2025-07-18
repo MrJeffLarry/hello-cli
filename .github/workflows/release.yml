@@ -64,15 +64,10 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           VERSION: ${{ github.ref_name }}
 
-      # - uses: morph027/apt-repo-action@v2
-      #   id: create-apt-repo
-      #   with:
-      #     repo-name: ${{ env.REPO_NAME }}
-      #     scan-dir: dist
-      #     signing-key: ${{ secrets.APT_SECRET_KEY }}
-      #     codename: ${{ env.CODENAME }}
-      #     components: ${{ env.COMPONENTS }}
-      #     architectures: ${{ env.ARCHITECTURES }}
+      - name: Build
+        uses: TartanLlama/actions-eleventy@master
+        with:
+          args: --output site
 
       - name: Update APT Release files
         env:
@@ -89,10 +84,6 @@ jobs:
         with:
           name: github-pages
           path: site
-
-      # - uses: EndBug/add-and-commit@v9
-      #   with:
-      #     message: Update APT release files
 
   deploy:
     environment:
