@@ -65,7 +65,7 @@ jobs:
           VERSION: ${{ github.ref_name }}
 
       - name: Build
-        uses: cjerrington/actions-eleventy@v1.3
+        uses: cjerrington/actions-eleventy@master
         with:
           args: '--output=_dist'
 
