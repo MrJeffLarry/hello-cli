@@ -22,7 +22,6 @@ gpg --batch --pinentry-mode loopback --default-key "$GPG_FINGERPRINT" --passphra
 cd ..
 
 mkdir -p out
-mkdir -p site
 
 cp README.md out/index.md
 cp -r docs/ out/
