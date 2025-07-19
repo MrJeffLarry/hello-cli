@@ -72,6 +72,15 @@ jobs:
       #     # packages: 'pymdown-extensions'
       #     extensions: '["pymdownx.extra"]'
 
+      - name: Update APT Release files
+        env:
+          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          VERSION: ${{ github.ref_name }}
+        run: |
+          chmod +x ./script/*.sh
+          ./script/apt.sh
+
       - uses: baileyjm02/markdown-to-pdf@v1
         with:
           input_dir: out
@@ -84,15 +93,6 @@ jobs:
           # Default is true, can set to false to only get PDF files
           build_html: true
           build_pdf: false
-
-      - name: Update APT Release files
-        env:
-          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-          VERSION: ${{ github.ref_name }}
-        run: |
-          chmod +x ./script/*.sh
-          ./script/apt.sh
       
       - name: Upload artifact out
         id: upload-artifact-out
