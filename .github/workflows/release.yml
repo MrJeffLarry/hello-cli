@@ -83,8 +83,8 @@ jobs:
 
       - uses: baileyjm02/markdown-to-pdf@v1
         with:
-          input_dir: _out
-          output_dir: site
+          input_path: _out
+          output_path: site
           # images_dir: docs/images
           # for example <img src="./images/file-name.png">
           # image_import: ./images
