@@ -73,6 +73,14 @@ jobs:
           chmod +x ./script/*.sh
           ./script/apt.sh
 
+      - uses: ZacJW/markdown-html-action@1.1.0
+        with:
+          input_files: '[["_out/*.md"]]'
+          output_files: '["site/index.html"]'
+          # builtin_stylesheet: 'style.css'
+          # packages: 'pymdown-extensions'
+          # extensions: '["pymdownx.extra"]'
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
