@@ -73,13 +73,24 @@ jobs:
           chmod +x ./script/*.sh
           ./script/apt.sh
 
-      - uses: ZacJW/markdown-html-action@1.1.0
+      # - uses: ZacJW/markdown-html-action@1.1.0
+      #   with:
+      #     input_files: '["_out/*.md"]'
+      #     output_files: '["site/index.html"]'
+      #     # builtin_stylesheet: 'style.css'
+      #     # packages: 'pymdown-extensions'
+      #     extensions: '["pymdownx.extra"]'
+
+      - uses: baileyjm02/markdown-to-pdf@v1
         with:
-          input_files: '["_out/*.md"]'
-          output_files: '["site/index.html"]'
-          # builtin_stylesheet: 'style.css'
-          # packages: 'pymdown-extensions'
-          extensions: '["pymdownx.extra"]'
+          input_dir: _out
+          output_dir: site
+          # images_dir: docs/images
+          # for example <img src="./images/file-name.png">
+          # image_import: ./images
+          # Default is true, can set to false to only get PDF files
+          build_html: true
+          build_pdf: false
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
