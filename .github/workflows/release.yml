@@ -73,11 +73,6 @@ jobs:
           chmod +x ./script/*.sh
           ./script/apt.sh
 
-      - name: Build
-        uses: cjerrington/actions-eleventy@master
-        with:
-          args: '--output=site'
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

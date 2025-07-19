@@ -21,4 +21,7 @@ gpg --batch --pinentry-mode loopback --default-key "$GPG_FINGERPRINT" --passphra
 
 cd ..
 
+cp README.md ./site/index.md
+cp -r docs/ ./site/
+
 cp -r ./apt ./site/apt
