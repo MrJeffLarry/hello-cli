@@ -83,7 +83,7 @@ jobs:
 
       - uses: baileyjm02/markdown-to-pdf@v1
         with:
-          input_path: _out
+          input_path: out
           output_path: site
           # images_dir: docs/images
           # for example <img src="./images/file-name.png">
@@ -91,6 +91,22 @@ jobs:
           # Default is true, can set to false to only get PDF files
           build_html: true
           build_pdf: false
+      
+      - name: Upload artifact out
+        id: upload-artifact-out
+        uses: actions/upload-artifact@v4
+        with:
+          name: hello-cli-out
+          path: out
+          retention-days: 1
+
+      - name: Upload artifact site
+        id: upload-artifact-site
+        uses: actions/upload-artifact@v4
+        with:
+          name: hello-cli-site
+          path: site
+          retention-days: 1
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
