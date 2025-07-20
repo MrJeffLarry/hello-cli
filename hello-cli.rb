@@ -5,20 +5,20 @@
 class HelloCli < Formula
   desc "Hello CLI"
   homepage "https://github.com/mrjefflarry/hello-cli"
-  version "0.0.41"
+  version "0.0.42"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.41/hello-cli_0.0.41_darwin_amd64.tar.gz"
-      sha256 "2c27a2f62242dba5953880b8ab8b0f6b7f172c17507f5b36e44764050dc25931"
+      url "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.42/hello-cli_0.0.42_darwin_amd64.tar.gz"
+      sha256 "52f19ae5c3e63de348de5689a39afb0ff19dcacd3542c60d52818c7210f4f3b0"
 
       def install
         bin.install "hello-cli"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.41/hello-cli_0.0.41_darwin_arm64.tar.gz"
-      sha256 "77ad4bb44551803418f8cc73c4eafed68de8dec33d733a1fe9bdb0db65895c90"
+      url "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.42/hello-cli_0.0.42_darwin_arm64.tar.gz"
+      sha256 "7936e2d7bbd6dd8a39a05b1f7d7934ace8a6070694e355ff1c27f40854d8d6b7"
 
       def install
         bin.install "hello-cli"
@@ -28,15 +28,15 @@ class HelloCli < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.41/hello-cli_0.0.41_linux_amd64.tar.gz"
-      sha256 "3ce68df552e6eb5c84ab3890756c9395a55c70b65c66a6ac3e3683c90145ef86"
+      url "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.42/hello-cli_0.0.42_linux_amd64.tar.gz"
+      sha256 "bd54ffe9179a18e4e135b99568ca523c2512681eebb8689d75c37288801fd90d"
       def install
         bin.install "hello-cli"
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.41/hello-cli_0.0.41_linux_arm64.tar.gz"
-      sha256 "37943a31f04b695d01c28164837b5a2b6072411a987f963b70e0137bae066add"
+      url "https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.42/hello-cli_0.0.42_linux_arm64.tar.gz"
+      sha256 "c87e1b93c52aaac94ebc2b73aa84cc35d27e3e8173798bf1b6f5b79e20b02f14"
       def install
         bin.install "hello-cli"
       end
