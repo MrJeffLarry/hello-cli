@@ -23,3 +23,4 @@ git config --local user.name "GitHub Actions"
 git config --local user.email "<>"
 git add .
 git commit -m "Update apt files"
+git push origin main
