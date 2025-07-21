@@ -65,15 +65,11 @@ jobs:
           chmod +x ./script/*.sh
 
       - name: Update apt files
+        env:
+          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
           ./script/apt.sh
-      
-      - name: Commit apt files
-        run: |
-          git config --local user.name "GitHub Actions"
-          git config --local user.email "<>"
-          git add ./apt
-          git commit -m "Update apt files"
 
       - name: Update site files
         run: |

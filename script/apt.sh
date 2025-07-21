@@ -18,3 +18,8 @@ gzip -k -f Packages
 apt-ftparchive release . > Release
 gpg --batch --pinentry-mode loopback --default-key "$GPG_FINGERPRINT" --passphrase "$GPG_PASSPHRASE" -abs -o - Release > Release.gpg
 gpg --batch --pinentry-mode loopback --default-key "$GPG_FINGERPRINT" --passphrase "$GPG_PASSPHRASE" --clearsign -o - Release > InRelease
+
+git config --local user.name "GitHub Actions"
+git config --local user.email "<>"
+git add .
+git commit -m "Update apt files"
