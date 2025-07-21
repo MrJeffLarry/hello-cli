@@ -22,6 +22,7 @@ gpg --batch --pinentry-mode loopback --default-key "$GPG_FINGERPRINT" --passphra
 # git commit and push
 git config --local user.name "GitHub Actions"
 git config --local user.email "<>"
+git pull
 git add .
 git commit -m "Update apt files"
 git push origin main
