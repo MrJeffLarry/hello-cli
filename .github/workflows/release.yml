@@ -64,6 +64,17 @@ jobs:
       - run: |
           chmod +x ./script/*.sh
 
+      - name: Update apt files
+        run: |
+          ./script/apt.sh
+      
+      - name: Commit apt files
+        run: |
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "<>"
+          git add ./apt
+          git commit -m "Update apt files"
+
       - name: Update site files
         run: |
           ./script/site.sh

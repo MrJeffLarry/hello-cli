@@ -16,4 +16,4 @@ else
 fi
 cp docs/* out/
 
-cp -r install/apt site/apt
+cp -r apt site/apt
