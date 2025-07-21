@@ -6,6 +6,7 @@ on:
       - test
 
 permissions:
+  contents: write
   pages: write
 
 jobs:
