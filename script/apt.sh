@@ -2,9 +2,9 @@
 
 set -e
 
-cp ./dist/*.deb ./apt/
+cp ./dist/*.deb ./install/apt/
 
-cd ./apt
+cd ./install/apt
 
 # Packages & Packages.gz
 dpkg-scanpackages --multiversion . > Packages
