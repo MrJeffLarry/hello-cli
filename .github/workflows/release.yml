@@ -6,9 +6,7 @@ on:
       - 'v[0-9]+.[0-9]+.[0-9]+'
 
 permissions:
-  contents: write
   pages: write
-  id-token: write
 
 env:
   REPO_NAME: hello-cli

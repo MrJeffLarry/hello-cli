@@ -2,8 +2,8 @@ name: Build release
 
 on:
   push:
-    paths:
-    - '*.md'
+    branches:
+      - test
 
 permissions:
   pages: write
