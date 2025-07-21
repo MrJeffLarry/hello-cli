@@ -38,11 +38,11 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
       - name: Fetch all tags
         run: git fetch --force --tags
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
       - name: Import GPG key
         id: import_gpg
@@ -61,54 +61,32 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           VERSION: ${{ github.ref_name }}
 
-      - name: Update APT Release files
-        env:
-          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-          VERSION: ${{ github.ref_name }}
-        run: |
+      - run: |
           chmod +x ./script/*.sh
-          ./script/apt.sh
+
+      - name: Update site files
+        run: |
+          ./script/site.sh
 
       - uses: baileyjm02/markdown-to-pdf@v1
         with:
-          input_dir: out
+          input_dir: out/
           output_dir: site/
+          theme: website/extends.css
+          extend_default_theme: true
+          template: website/template.html
+          
           # images_dir: docs/images
           # for example <img src="./images/file-name.png">
           # image_import: ./images
           # Default is true, can set to false to only get PDF files
           build_html: true
           build_pdf: false
-
-      # - uses: ZacJW/markdown-html-action@1.1.0
-      #   with:
-      #     input_files: '["_out/*.md"]'
-      #     output_files: '["site/index.html"]'
-      #     # builtin_stylesheet: 'style.css'
-      #     # packages: 'pymdown-extensions'
-      #     extensions: '["pymdownx.extra"]'
       
       - run: |
           ls -la
           ls -la site
           ls -la out
-      
-      - name: Upload artifact out
-        id: upload-artifact-out
-        uses: actions/upload-artifact@v4
-        with:
-          name: hello-cli-out
-          path: out
-          retention-days: 1
-
-      - name: Upload artifact site
-        id: upload-artifact-site
-        uses: actions/upload-artifact@v4
-        with:
-          name: hello-cli-site
-          path: site
-          retention-days: 1
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

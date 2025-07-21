@@ -2,13 +2,11 @@ name: Build release
 
 on:
   push:
-    # paths:
-    # - '*.md'
+    paths:
+    - '*.md'
 
 permissions:
-  contents: write
   pages: write
-  id-token: write
 
 jobs:
   build:
@@ -30,7 +28,6 @@ jobs:
         with:
           input_dir: out/
           output_dir: site/
-          table_of_contents: true
           theme: website/extends.css
           extend_default_theme: true
           template: website/template.html
