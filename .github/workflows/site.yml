@@ -28,7 +28,7 @@ jobs:
 
       - uses: baileyjm02/markdown-to-pdf@v1
         with:
-          input_dir: out
+          input_dir: out/
           output_dir: site/
           table_of_contents: true
           theme: website/extends.css
