@@ -18,13 +18,3 @@ gzip -k -f Packages
 apt-ftparchive release . > Release
 gpg --batch --pinentry-mode loopback --default-key "$GPG_FINGERPRINT" --passphrase "$GPG_PASSPHRASE" -abs -o - Release > Release.gpg
 gpg --batch --pinentry-mode loopback --default-key "$GPG_FINGERPRINT" --passphrase "$GPG_PASSPHRASE" --clearsign -o - Release > InRelease
-
-cd ..
-
-mkdir -p out
-mkdir -p site
-
-cp README.md out/index.md
-cp -r docs out/docs
-
-cp -r apt site/apt
