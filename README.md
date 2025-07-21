@@ -2,6 +2,8 @@
 
 Linux
 
+Documentation can be found [here](./docs/config.md)
+
 apt
 
 ```bash
