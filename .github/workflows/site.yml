@@ -31,6 +31,10 @@ jobs:
           input_dir: out
           output_dir: site/
           table_of_contents: true
+          theme: website/extends.css
+          extend_default_theme: true
+          template: website/template.html
+          
           # images_dir: docs/images
           # for example <img src="./images/file-name.png">
           # image_import: ./images
