@@ -1,46 +1,46 @@
 Package: hello-cli
-Version: 0.0.17
-Architecture: arm64
-Maintainer: Jeff Hägerman
-Installed-Size: 1472
-Recommends: less, nano
-Filename: https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.17/hello-cli_0.0.17_linux_arm64.deb
-Size: 622000
-MD5sum: b41e461c2e2d768698461bb39a161d22
-SHA1: ca7ced1d233eb6cc74bda0ba8ff945d7248e3857
-SHA256: 843264ffa6c2d28c925a640882900087c1cc69c80945d908b00438ca4c0d4f8f
-Priority: optional
-Homepage: https://github.com/mrjefflarry/hello-cli
-Description: Hello CLI for interacting with Hello Servers
-License: MIT
-
-Package: hello-cli
-Version: 0.0.17
-Architecture: amd64
-Maintainer: Jeff Hägerman
-Installed-Size: 1420
-Recommends: less, nano
-Filename: https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.17/hello-cli_0.0.17_linux_amd64.deb
-Size: 659022
-MD5sum: 71fd6f414e0cb706cb88d5378c5becbc
-SHA1: e3fa7c27fa95a8b7f4f0cd9a58c4f4c7983e0bdb
-SHA256: bc975c81c67033ba86b83edcdc1d7c6d66636d3573b935450fce73f6dca259ab
-Priority: optional
-Homepage: https://github.com/mrjefflarry/hello-cli
-Description: Hello CLI for interacting with Hello Servers
-License: MIT
-
-Package: hello-cli
-Version: 0.0.17
+Version: 0.0.55
 Architecture: i386
 Maintainer: Jeff Hägerman
 Installed-Size: 1348
 Recommends: less, nano
-Filename: https://github.com/MrJeffLarry/hello-cli/releases/download/v0.0.17/hello-cli_0.0.17_linux_386.deb
-Size: 633102
-MD5sum: ea36a65306b358409130ead89f516373
-SHA1: 108211e2170dd7937f4410c76970b29f22f5cc18
-SHA256: 6cbb680d6d21d3399f385912c6e6ce3874ae81efa1310609e0af7a9b6278bbc7
+Filename: ./hello-cli_0.0.55_linux_386.deb
+Size: 633108
+MD5sum: aa05c3014972bf2a47d0b7067896041d
+SHA1: 0b6eb47d57860c2beb401e2dde78adc2db50a1a5
+SHA256: bccf60d96ede9d3cbc29a9f4d22a4c50da7009da05dbaa7f31952b31ae6a379f
+Priority: optional
+Homepage: https://github.com/mrjefflarry/hello-cli
+Description: Hello CLI for interacting with Hello Servers
+License: MIT
+
+Package: hello-cli
+Version: 0.0.55
+Architecture: amd64
+Maintainer: Jeff Hägerman
+Installed-Size: 1420
+Recommends: less, nano
+Filename: ./hello-cli_0.0.55_linux_amd64.deb
+Size: 659020
+MD5sum: be92cc9d7745b046879a877f9299b038
+SHA1: 7916104b8079e6be51b739a7a34972708cd91ae2
+SHA256: c802490c840ba9cb550f00a22bfeb5bb5a046319c5d0331ff6323970a0ba47a3
+Priority: optional
+Homepage: https://github.com/mrjefflarry/hello-cli
+Description: Hello CLI for interacting with Hello Servers
+License: MIT
+
+Package: hello-cli
+Version: 0.0.55
+Architecture: arm64
+Maintainer: Jeff Hägerman
+Installed-Size: 1472
+Recommends: less, nano
+Filename: ./hello-cli_0.0.55_linux_arm64.deb
+Size: 621998
+MD5sum: 4692a02b7272c9a6d13bf9c87e90f74d
+SHA1: f88f4e07a24ba7e695104ae7d7ed0622017edcaa
+SHA256: 83736506dfacfdd307795541469f96ed8c6daace3d62e12daf8788c4af5f6fe8
 Priority: optional
 Homepage: https://github.com/mrjefflarry/hello-cli
 Description: Hello CLI for interacting with Hello Servers
